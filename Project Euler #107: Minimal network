@@ -1,0 +1,117 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+            Scanner scan = new Scanner(System.in);
+int n = scan.nextInt();
+int m = scan.nextInt();
+int temp  = 9999999;
+int next1 = 0,next2 =0;
+int twt1 = 0,twt2 = 0,fin,k=0;
+boolean[][] flag = new boolean[n][n];
+ int[] union = new int[n];
+int[][] arr = new int[n][n];
+for(int i = 0;i<n;i++){
+union[i] = -1;
+}
+for(int i = 0;i<n;i++){
+for(int j = 0;j<n;j++){
+flag[i][j] = false;
+}
+}
+for(int i = 0;i<n;i++){
+for(int j = 0;j<n;j++){
+arr[i][j] = 0;
+}
+}
+
+
+for(int i = 0;i<m;i++){
+
+int r = scan.nextInt();
+int f = scan.nextInt();
+int wt = scan.nextInt();
+arr[r-1][f-1] = wt;
+arr[f-1][r-1] = wt;
+}
+for(int i = 0;i<n;i++){
+for(int j = 0;j<n;j++){
+twt1 = twt1 + arr[i][j];
+//System.out.print(arr[i][j] + " ");
+}
+//System.out.println();
+}
+while(k<n-1){
+for(int i = 0;i<n;i++){
+for(int j = 0;j<n;j++){
+if(flag[i][j] == false && arr[i][j] != 0 && arr[i][j] <= temp  ){
+temp = arr[i][j];
+next1 = i;
+next2 = j;
+}
+}
+
+}
+//System.out.println(next2);
+flag[next1][next2] = true;
+flag[next2][next1] = true;
+arr[next2][next1] = 0;
+//for(int i = 0;i<n;i++){
+//if(i != next1 ){
+//arr[i][next2] = 0;
+//}
+//}
+if(union[next1] == -1 && union[next2] == -1){
+union[next1] = next2;
+k++;
+}
+else
+{
+if(union[next1] != union[next2]){
+if(union[next1] != -1){
+union[union[next1]] = next2;
+
+}
+else
+{
+union[next1] = next2;
+
+}
+k++;
+}
+else
+{
+flag[next1][next2] = false;
+flag[next2][next1] = false;
+arr[next1][next2] = 0;
+arr[next2][next1] = 0;
+
+}
+}
+temp = 999999;
+}
+for(int i = 0;i<n;i++){
+for(int j = 0;j<n;j++){
+if(flag[i][j] == false){
+arr[i][j] = 0;
+}
+}
+}
+for(int i = 0;i<n;i++){
+for(int j = 0;j<n;j++){
+twt2 = twt2 + arr[i][j];
+//arr[j][i] = 0;
+//System.out.print(arr[i][j] + " ");
+}
+//System.out.println();
+}
+fin = twt1 - twt2;
+System.out.println(twt2);
+    }
+}
