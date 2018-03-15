@@ -1,0 +1,203 @@
+import java.util.*;
+public class Grid{
+public static void main(String[] args){
+Scanner scan = new Scanner(System.in);
+int n = 20;
+int[][] arr = new int[n][n];
+long var1,var2,var3,var4,var5,var6,var7,var8,max = 0;
+for(int i=0;i<n;i++){
+for(int j=0;j<n;j++){
+arr[i][j] = scan.nextInt();
+}
+}
+//for(int i=0;i<n;i++){
+//for(int j=0;j<n;j++){
+//System.out.print(arr[i][j] + " ");
+//}
+//System.out.println();
+//}
+for(int i = 0;i<n;i++){
+for(int j = 0;j<n;j++){
+if((i>2&&i<17)&&(j>2&&j<17)){
+var1 = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+if(var1>=max){
+max = var1;
+}
+var2 = arr[i][j]*arr[i][j-1]*arr[i][j-2]*arr[i][j-3];
+if(var2>=max){
+max = var2;
+}
+var3 = arr[i][j]*arr[i-1][j]*arr[i-2][j]*arr[i-3][j];
+if(var3>=max){
+max = var3;
+}
+var4 = arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j];
+if(var4>=max){
+max = var4;
+}
+var5 = arr[i][j]*arr[i+1][j+1]*arr[i+2][j+2]*arr[i+3][j+3];
+if(var5>=max){
+max = var5;
+}
+var6 =  arr[i][j]*arr[i-1][j-1]*arr[i-2][j-2]*arr[i-3][j-3];
+if(var6>max){
+max = var6;
+}
+ var7 = arr[i][j]*arr[i-1][j+1]*arr[i-2][j+2]*arr[i-3][j+3];
+if(var7>max){
+max = var7;
+}
+var8 = arr[i][j]*arr[i+1][j-1]*arr[i+2][j-2]*arr[i+3][j-3];
+if(var8>max){
+max = var8;
+}
+}
+if((j>2&&j<17)&&(i<3)){
+var2 = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+if(var2>max){
+max = var2;
+}
+var3 = arr[i][j]*arr[i][j-1]*arr[i][j-2]*arr[i][j-3];
+if(var3>max){
+max = var3;
+}
+var6 = arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j];
+if(var6>max){
+max = var6;
+}
+var1  = arr[i][j]*arr[i+1][j-1]*arr[i+2][j-2]*arr[i+3][j-3];
+if(var1>max){
+max = var1;
+}
+var5 = arr[i][j]*arr[i+1][j+1]*arr[i+2][j+2]*arr[i+3][j+3];
+if(var5>=max){
+max = var5;
+}
+}
+if(i>16&&((j>2&&j<17))){
+var3  = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+if(var3>max){
+max = var3;
+}
+var4  = arr[i][j]*arr[i][j-1]*arr[i][j-2]*arr[i][j-3];
+if(var4>max){
+max = var4;
+}
+var6  = arr[i][j]*arr[i-1][j]*arr[i-2][j]*arr[i-3][j];
+if(var6>max){
+max = var6;
+}
+var1 = arr[i][j]*arr[i-1][j+1]*arr[i-2][j+2]*arr[i-3][j+3];
+if(var1>max){
+max = var1;
+}
+var2 = arr[i][j]*arr[i-1][j-1]*arr[i-2][j-2]*arr[i-3][j-3];
+if(var2>max){
+max = var2;
+}
+}
+if((i>2&&i<17)&&(j<3)){
+var2 = arr[i][j]*arr[i-1][j]*arr[i-2][j]*arr[i-3][j];
+if(var2>max){
+max = var2;
+}
+var3 = arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j+3];
+if(var3>max){
+max = var3;
+}
+var4 = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+if(var4>max){
+max = var4;
+}
+var1 = arr[i][j]*arr[i-1][j+1]*arr[i-2][j+2]*arr[i-3][j+3];
+if(var1>max){
+max = var1;
+}
+var5 = arr[i][j]*arr[i+1][j+1]*arr[i+2][j+2]*arr[i+3][j+3];
+if(var5>=max){
+max = var5;
+}
+}
+if((i>2&&i<17)&&(j>16)){
+var3 = arr[i][j]*arr[i-1][j]*arr[i-2][j]*arr[i-3][j];
+if(var3>max){
+max = var3;
+}
+var4 = arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j];
+if(var4>max){
+max = var4;
+}
+var5 = arr[i][j]*arr[i][j-1]*arr[i][j-2]*arr[i][j-3];
+if(var5>max){
+max = var5;
+}
+var1 = arr[i][j]*arr[i-1][j-1]*arr[i-2][j-2]*arr[i-3][j-3];
+if(var1>max){
+max = var1;
+}
+var2 = arr[i][j]*arr[i+1][j-1]*arr[i+2][j-2]*arr[i+3][j-3];
+if(var2>max){
+max = var2;
+}
+}
+if(i<3&&j<3){
+var3 = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+if(var3>=max){
+max = var3;
+}
+var4 = arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j];
+if(var4>=max){
+max = var4;
+}
+var5 = arr[i][j]*arr[i+1][j+1]*arr[i+2][j+2]*arr[i+3][j+3];
+if(var5>=max){
+max = var5;
+}
+}
+if(i<3&&j>16){
+var3 = arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j];
+if(var3>max){
+max = var3;
+}
+var4 = arr[i][j]*arr[i][j-1]*arr[i][j-2]*arr[i][j-3];
+if(var4>max){
+max = var4;
+}
+var2 = arr[i][j]*arr[i+1][j-1]*arr[i+2][j-2]*arr[i+3][j-3];
+if(var2>max){
+max = var2;
+}
+}
+if(i>16&&j<3){
+var3 = arr[i][j]*arr[i-1][j]*arr[i-2][j]*arr[i-3][j];
+if(var3>max){
+max = var3;
+}
+var4 = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+if(var4>max){
+max = var4;
+}
+var2 = arr[i][j]*arr[i-1][j+1]*arr[i-2][j+2]*arr[i-3][j+3];
+if(var2>max){
+max = var2;
+}
+}
+if(i>16&&j>16){
+var3 = arr[i][j]*arr[i-1][j]*arr[i-2][j]*arr[i-3][j];
+if(var3>max){
+max = var3;
+}
+var4 = arr[i][j]*arr[i][j-1]*arr[i][j-2]*arr[i][j-3];
+if(var4>max){
+max = var4;
+}
+var1 = arr[i][j]*arr[i-1][j-1]*arr[i-2][j-2]*arr[i-3][j-3];
+if(var1>max){
+max = var1;
+}
+}
+}
+}
+System.out.println(max);
+}
+}
